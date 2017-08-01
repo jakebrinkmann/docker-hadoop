@@ -1,11 +1,6 @@
 
 Configures and provisions a single master and single slave [Apache™ Hadoop®!](https://hadoop.apache.org/) nodes, using Docker
 
-## Dependencies
-
-* Docker version 1.12
-* docker-compose version 1.11.2
-
 ## Installation
 
 Build the [base Hadoop image](/base/Dockerfile) in Docker:
