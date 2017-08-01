@@ -1,8 +1,5 @@
-# [pygmy-short-horned-lizard](https://en.wikipedia.org/wiki/Pygmy_short-horned_lizard)
 
-**PROVISIONAL SOFTWARE DISCLAIMER**: This software is preliminary and is subject to revision.
-
-Configures and provisions a single master and single slave Hadoop node, using Docker
+Configures and provisions a single master and single slave [Apache™ Hadoop®!](https://hadoop.apache.org/) nodes, using Docker
 
 ## Dependencies
 
