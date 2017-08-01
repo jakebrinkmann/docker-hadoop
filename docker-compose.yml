@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+  hadoop-master:
+    image: hadoop-base
+    container_name: hadoop-master
+    hostname: hadoop-master
+    working_dir: "${HADOOP_HOME}"
+    volumes:
+      - "./base/config/bashrc:/root/.bashrc"
+      - "./base/config/ssh_config:/etc/ssh/ssh_config"
+      - "./base/config/sshd_config:/etc/ssh/sshd_config"
+      - "./master/config/core-site.xml:${HADOOP_HOME}/etc/hadoop/core-site.xml"
+      - "./master/config/hdfs-site.xml:${HADOOP_HOME}/etc/hadoop/hdfs-site.xml"
+      - "./master/config/yarn-site.xml:${HADOOP_HOME}/etc/hadoop/yarn-site.xml"
+      - "./master/config/mapred-site.xml:${HADOOP_HOME}/etc/hadoop/mapred-site.xml"
+      - "./master/config/masters:${HADOOP_HOME}/etc/hadoop/masters"
+      - "./master/config/slaves:${HADOOP_HOME}/etc/hadoop/slaves"
+      - "./scripts/start-master.sh:${HADOOP_HOME}/start-master.sh"
+      - "./scripts/launch-mapred-job.sh:${HADOOP_HOME}/launch-mapred-job.sh"
+      - "./scripts/launch-shell-job.sh:${HADOOP_HOME}/launch-shell-job.sh"
+    ports:
+      - "50070:50070"
+      - "8032:8032"
+      - "8031:8031"
+      - "8088:8088"
+      - "19888:19888"
+      - "22"
+  hadoop-slave1:
+    image: hadoop-base
+    container_name: hadoop-slave1
+    hostname: hadoop-slave1
+    working_dir: "${HADOOP_HOME}"
+    volumes:
+      - "./base/config/bashrc:/root/.bashrc"
+      - "./base/config/ssh_config:/etc/ssh/ssh_config:ro"
+      - "./base/config/sshd_config:/etc/ssh/sshd_config:ro"
+      - "./master/config/masters:${HADOOP_HOME}/etc/hadoop/masters"
+      - "./master/config/core-site.xml:${HADOOP_HOME}/etc/hadoop/core-site.xml"
+      - "./master/config/yarn-site.xml:${HADOOP_HOME}/etc/hadoop/yarn-site.xml"
+    ports:
+      - "8042:8042"
+      - "8031"
+      - "8032"
+      - "22"
+

@@ -1,0 +1,8 @@
+AllowUsers hadoop root
+AuthenticationMethods publickey
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+
+## Ciphers ##
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+
