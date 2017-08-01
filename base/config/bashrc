@@ -1,0 +1,4 @@
+. /etc/bashrc
+export HADOOP_HOME=/usr/local/hadoop
+export JAVA_HOME=/usr/local/java
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
